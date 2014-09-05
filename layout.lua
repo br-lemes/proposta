@@ -28,18 +28,3 @@ gui.dialog = iup.dialog{
 		},
 	}
 }
-
-function gui.iupnames(self, elem)
-	if type(elem) == "userdata" then
-		if elem.name ~= "" and elem.name ~= nil then
-			self[elem.name] = elem
-		end
-	end
-	local i = 1
-	while elem[i] do
-		self:iupnames(elem[i])
-		i = i + 1
-	end
-end
-
-gui:iupnames(gui.dialog)
