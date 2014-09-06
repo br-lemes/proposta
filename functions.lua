@@ -15,3 +15,14 @@ function fun.iupnames(elem, dest)
 end
 
 fun.iupnames(gui.dialog, gui)
+
+function fun.question(message)
+	local dlg = iup.messagedlg{
+		title      = "Confirmar",
+		value      = message,
+		buttons    = "YESNO",
+		dialogtype = "QUESTION"
+	}
+	dlg:popup()
+	return dlg.buttonresponse == "1"
+end

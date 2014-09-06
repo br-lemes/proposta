@@ -5,6 +5,7 @@ os.setlocale("C", "numeric")
 require("lfs")
 require("iuplua")
 require("layout")
+require("action")
 require("functions")
 
 function require_dir(dir)
