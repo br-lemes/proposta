@@ -19,12 +19,35 @@ gui.dialog = iup.dialog{
 				name  = "menubutton",
 			},
 		},
-		iup.list{
-			name           = "result",
-			visiblelines   = "1",
-			visiblecolumns = "1",
-			expand         = "YES",
-			showimage      = "YES",
+		iup.zbox{
+			name   = "mainzbox",
+			margin = "0",
+			iup.vbox{
+				name = "resultbox",
+				iup.list{
+					name           = "result",
+					visiblelines   = "1",
+					visiblecolumns = "1",
+					expand         = "YES",
+					showimage      = "YES",
+				},
+				iup.zbox{
+					name       = "bottomzbox",
+					rastersize = "x50",
+					iup.vbox{
+						name = "detailsbox",
+						iup.label{
+							name      = "details",
+							expand    = "HORIZONTAL",
+							alignment = "ACENTER",
+							title     = "\n",
+						},
+					},
+					iup.vbox{
+						name = "iconsbox",
+					},
+				},
+			},
 		},
-	}
+	},
 }
