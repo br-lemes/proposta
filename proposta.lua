@@ -5,6 +5,7 @@ os.setlocale("C", "numeric")
 require("lfs")
 require("iuplua")
 require("layout")
+require("functions")
 
 function require_dir(dir)
 	if not lfs.attributes(dir) then return end
