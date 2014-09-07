@@ -34,18 +34,6 @@ gui.dialog = iup.dialog{
 				iup.zbox{
 					name       = "bottomzbox",
 					rastersize = "x50",
-					iup.vbox{
-						name = "detailsbox",
-						iup.label{
-							name      = "details",
-							expand    = "HORIZONTAL",
-							alignment = "ACENTER",
-							title     = "\n",
-						},
-					},
-					iup.vbox{
-						name = "iconsbox",
-					},
 				},
 			},
 		},
