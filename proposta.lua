@@ -8,21 +8,8 @@ require("layout")
 require("action")
 require("functions")
 
-function require_dir(dir)
-	if not lfs.attributes(dir) then return end
-	for file in lfs.dir(dir) do
-		local i = file:find("%.lua$")
-		if i then
-			require(string.format("%s.%s",
-				dir, file:sub(1, i - 1)))
-		end
-	end
-end
-
-ico = { }
-plug = { }
-require_dir("icons")
-require_dir("plugins")
+fun.plugin("icons", "ico")
+fun.plugin("plugins", "plug")
 
 gui.dialog:show()
 iup.MainLoop()
