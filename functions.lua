@@ -33,8 +33,11 @@ function fun.plugin(dir, name)
 	for file in lfs.dir(dir) do
 		local i = file:find("%.lua$")
 		if i then
-			require(string.format("%s.%s",
+			local v = require(string.format("%s.%s",
 				dir, file:sub(1, i - 1)))
+			if type(v) == "table" then
+				table.insert(_G[name], v)
+			end
 		end
 	end
 end
