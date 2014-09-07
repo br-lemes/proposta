@@ -19,6 +19,8 @@ function require_dir(dir)
 	end
 end
 
+ico = { }
+plug = { }
 require_dir("icons")
 require_dir("plugins")
 
