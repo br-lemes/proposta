@@ -14,3 +14,9 @@ function gui.dialog:k_any(k)
 		self:close_cb()
 	end
 end
+
+function gui.search:valuechanged_cb()
+	if gui.mainzbox.value ~= gui.resultbox then return end
+	fun.load_timer.run  = "NO"
+	fun.load_timer.run  = "YES"
+end

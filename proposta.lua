@@ -5,15 +5,15 @@ os.setlocale("C", "numeric")
 require("lfs")
 require("iuplua")
 require("layout")
-require("action")
 require("functions")
+require("action")
 
 fun.plugin("icons", "ico")
 fun.plugin("plugins", "plug")
 
-if plug[1] and plug[1].open then
-	plug[1].open()
-end
+plug.current = 1
+fun.fun(plug, plug.current, "open")
 
 gui.dialog:show()
+fun.reload()
 iup.MainLoop()

@@ -1,6 +1,23 @@
 
 fun = { }
 
+fun.lmax = 75
+
+fun.list = { }
+
+fun.load_timer = iup.timer{
+	time      = 500,
+	run       = "NO",
+	action_cb = function() fun.reload() end
+}
+
+function fun.fun(t, i, f)
+	if t and t[i] and type(t[i][f]) == "function" then
+		return t[i][f]()
+	end
+	return nil
+end
+
 function fun.iupnames(elem, dest)
 	if type(elem) == "userdata" then
 		if elem.name ~= "" and elem.name ~= nil then
@@ -39,5 +56,31 @@ function fun.plugin(dir, name)
 				table.insert(_G[name], v)
 			end
 		end
+	end
+end
+
+function fun.reload()
+	fun.fun(plug, plug.current, "reload")
+	fun.itemcount = 0
+	fun.load_timer.run = "NO"
+	gui.result.autoredraw = "NO"
+	iup.SetIdle(fun.itemload)
+end
+
+function fun.itemload()
+	local n = fun.itemcount + 1
+	local v = fun.list[n]
+	if v and n <= fun.lmax then
+		if gui.result[n] ~= v.name then
+			gui.result[n] = v.name
+		end
+		if gui.result["image" .. n] ~= v.icon then
+			gui.result["image" .. n] = v.icon
+		end
+		fun.itemcount = n
+	else
+		iup.SetIdle(nil)
+		gui.result[n] = nil
+		gui.result.autoredraw = "YES"
 	end
 end
