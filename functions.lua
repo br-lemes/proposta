@@ -11,9 +11,9 @@ fun.load_timer = iup.timer{
 	action_cb = function() fun.reload() end
 }
 
-function fun.fun(t, i, f)
-	if t and t[i] and type(t[i][f]) == "function" then
-		return t[i][f]()
+function fun.fun(t, f)
+	if t and type(t[f]) == "function" then
+		return t[f]()
 	end
 	return nil
 end
@@ -50,17 +50,14 @@ function fun.plugin(dir, name)
 	for file in lfs.dir(dir) do
 		local i = file:find("%.lua$")
 		if i then
-			local v = require(string.format("%s.%s",
+			require(string.format("%s.%s",
 				dir, file:sub(1, i - 1)))
-			if type(v) == "table" then
-				table.insert(_G[name], v)
-			end
 		end
 	end
 end
 
 function fun.reload()
-	fun.fun(plug, plug.current, "reload")
+	fun.fun(plug.current, "reload")
 	fun.itemcount = 0
 	fun.load_timer.run = "NO"
 	gui.result.autoredraw = "NO"

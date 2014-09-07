@@ -11,8 +11,7 @@ require("action")
 fun.plugin("icons", "ico")
 fun.plugin("plugins", "plug")
 
-plug.current = 1
-fun.fun(plug, plug.current, "open")
+fun.fun(plug.current, "open")
 
 gui.dialog:show()
 fun.reload()
