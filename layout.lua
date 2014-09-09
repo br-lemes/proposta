@@ -1,6 +1,10 @@
 
 gui = { }
 
+gui.menu = iup.menu{
+	radio = "YES",
+}
+
 gui.dialog = iup.dialog{
 	rastersize = "600x440", 
 	title      = "Pro-Posta 0.1+",

@@ -20,3 +20,7 @@ function gui.search:valuechanged_cb()
 	fun.load_timer.run  = "NO"
 	fun.load_timer.run  = "YES"
 end
+
+function gui.menubutton:action()
+	gui.menu:popup(iup.MOUSEPOS, iup.MOUSEPOS)
+end
