@@ -11,8 +11,6 @@ require("action")
 fun.plugin("icons", "ico")
 fun.plugin("plugins", "plug")
 
-fun.fun(plug.current, "open")
-
+fun.plugopen(plug.current)
 gui.dialog:show()
-fun.reload()
 iup.MainLoop()

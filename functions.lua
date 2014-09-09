@@ -81,3 +81,10 @@ function fun.itemload()
 		gui.result.autoredraw = "YES"
 	end
 end
+
+function fun.plugopen(plugin)
+	plug.current = plugin
+	plugin.menuitem.value = "ON"
+	gui.menubutton.image = plugin.icon
+	fun.reload()
+end
