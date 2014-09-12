@@ -11,6 +11,16 @@ plug.tel.menuitem = iup.item{
 
 iup.Insert(gui.menu, nil, plug.tel.menuitem)
 
+function plug.tel.comp(a, b)
+	local aname = a.name:match("%d%d%d%d%-%d%d%d%d (.*)")
+	local bname = b.name:match("%d%d%d%d%-%d%d%d%d (.*)")
+	if aname < bname then
+		return true
+	else
+		return false
+	end
+end
+
 function plug.tel:reload()
 	fun.list = { }
 	local datafile = io.open("telephone.txt", "r")
@@ -26,4 +36,5 @@ function plug.tel:reload()
 			table.insert(fun.list, { name = line, icon = ico.telephone })
 		end
 	end
+	table.sort(fun.list, plug.tel.comp)
 end
