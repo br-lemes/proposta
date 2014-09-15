@@ -1,4 +1,6 @@
 
+require("winapi")
+
 plug.tel = { }
 
 if not plug.current then plug.current = plug.tel end
@@ -21,7 +23,7 @@ function plug.tel.comp(a, b)
 	end
 end
 
-function plug.tel:reload()
+function plug.tel.reload()
 	fun.list = { }
 	local datafile = io.open("telephone.txt", "r")
 	if not datafile then return end
@@ -37,4 +39,8 @@ function plug.tel:reload()
 		end
 	end
 	table.sort(fun.list, plug.tel.comp)
+end
+
+function plug.tel.enter()
+	winapi.shell_exec("open", "telephone.txt")
 end

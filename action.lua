@@ -15,6 +15,12 @@ function gui.dialog:k_any(k)
 	end
 end
 
+function gui.result:k_any(k)
+	if k == iup.K_CR then
+		fun.fun(plug.current, "enter")
+	end
+end
+
 function gui.search:valuechanged_cb()
 	if gui.mainzbox.value ~= gui.resultbox then return end
 	fun.load_timer.run  = "NO"
