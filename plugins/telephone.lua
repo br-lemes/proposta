@@ -44,3 +44,5 @@ end
 function plug.tel.enter()
 	winapi.shell_exec("open", "telephone.txt")
 end
+
+plug.tel.edit = plug.tel.enter

@@ -18,6 +18,8 @@ end
 function gui.result:k_any(k)
 	if k == iup.K_CR then
 		fun.fun(plug.current, "enter")
+	elseif k == iup.K_F2 then
+		fun.fun(plug.current, "edit")
 	end
 end
 
