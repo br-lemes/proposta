@@ -46,3 +46,4 @@ function plug.tel.enter()
 end
 
 plug.tel.edit = plug.tel.enter
+plug.tel.dblcick = plug.tel.enter
