@@ -22,6 +22,7 @@ function gui.result:k_any(k)
 		fun.fun(plug.current, "edit")
 	elseif k == iup.K_DEL then
 		fun.fun(plug.current, "delete")
+	else return iup.CONTINUE
 	end
 end
 
