@@ -47,3 +47,4 @@ end
 
 plug.tel.edit = plug.tel.enter
 plug.tel.dblcick = plug.tel.enter
+plug.tel.delete = plug.tel.enter

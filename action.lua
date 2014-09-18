@@ -20,6 +20,8 @@ function gui.result:k_any(k)
 		fun.fun(plug.current, "enter")
 	elseif k == iup.K_F2 then
 		fun.fun(plug.current, "edit")
+	elseif k == iup.K_DEL then
+		fun.fun(plug.current, "delete")
 	end
 end
 
