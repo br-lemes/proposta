@@ -6,7 +6,7 @@ gui.menu = iup.menu{
 }
 
 gui.dialog = iup.dialog{
-	rastersize = "600x440", 
+	rastersize = "600x440",
 	title      = "Pro-Posta 0.1+",
 	font       = "Helvetica, Bold 12",
 	iup.vbox{
